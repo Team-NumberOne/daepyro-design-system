@@ -3,3 +3,15 @@ contact_links:
   - name: 💬 질문 및 토론
     url: https://github.com/Team-NumberOne/daepyro-design-system/discussions
     about: 사용 방법, 아키텍처 등에 대한 질문은 Discussions를 이용해주세요
+
+version: 2
+templates:
+  - name: "✨ 기능 요청"
+    description: "새로운 컴포넌트나 기능을 제안해주세요"
+    file: ".github/ISSUE_TEMPLATE/feature_request.yml"
+  - name: "🐞 버그 보고"
+    description: "버그를 보고하려면 이 템플릿을 사용하세요."
+    file: ".github/ISSUE_TEMPLATE/bug_report.yml"
+  - name: "💡 디자인 토큰 추가"
+    description: "디자인 시스템에 필요한 새로운 토큰을 추가하려면 이 템플릿을 사용하세요."
+    file: ".github/ISSUE_TEMPLATE/design_token.yml"
