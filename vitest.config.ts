@@ -19,6 +19,15 @@ export default defineConfig({
       "@storybook": path.resolve(dirname, "./.storybook"),
     },
   },
+  optimizeDeps: {
+    exclude: [
+      "@storybook/addon-docs",
+      "@storybook/addon-docs/blocks",
+      "@storybook/addon-vitest/internal/setup-file",
+      "@storybook/addon-vitest/internal/global-setup",
+      "@storybook/addon-vitest/internal/test-utils",
+    ],
+  },
   test: {
     environment: "jsdom",
     globals: true,
@@ -63,6 +72,12 @@ export default defineConfig({
             configDir: path.join(dirname, ".storybook"),
           }),
         ],
+        resolve: {
+          alias: {
+            "@": path.resolve(dirname, "./src"),
+            "@storybook": path.resolve(dirname, "./.storybook"),
+          },
+        },
         test: {
           name: "storybook",
           browser: {
