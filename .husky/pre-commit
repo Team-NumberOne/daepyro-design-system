@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # 린트 체크
 pnpm lint
 
@@ -8,4 +5,4 @@ pnpm lint
 pnpm check
 
 # 포맷팅 체크 (자동 수정하지 않음)
-pnpm biome check ./src --write=false
+pnpm biome check ./src

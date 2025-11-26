@@ -117,12 +117,7 @@ git push origin v1.0.0
 - [로컬 배포 가이드](docs/LOCAL_PUBLISH.md)
 - [버전 관리 전략](docs/VERSIONING.md)
 - [릴리스 템플릿](docs/RELEASE_TEMPLATE.md)
-- [Husky Pre-commit 설정](docs/HUSKY_SETUP.md)
-
-### GitHub 설정
-
-- [GitHub Pages 설정](.github/GITHUB_PAGES_SETUP.md)
-- [브랜치 보호 설정](.github/BRANCH_PROTECTION.md)
+- [Husky Pre-commit 설정](docs/HUSKY_SETUP.md
 
 ### 변경 이력
 
