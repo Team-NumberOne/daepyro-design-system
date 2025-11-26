@@ -1,5 +1,5 @@
-import { isTestEnvironment } from "@storybook/utils";
 import type { Meta, StoryObj } from "@storybook/react";
+import { isTestEnvironment } from "@storybook/utils";
 import { within } from "@testing-library/react";
 import { expect } from "vitest";
 import { Button } from "./Button";
