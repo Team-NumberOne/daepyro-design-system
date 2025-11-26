@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
-// Storybook에서 play 함수의 jest-dom matcher를 사용하기 위해 import
-import "@testing-library/jest-dom/vitest";
+// @testing-library/jest-dom/vitest는 vitest.setup.ts에서만 import합니다.
+// preview.ts는 Storybook 빌드 환경에서도 실행되므로 vitest 관련 import를 하지 않습니다.
 
 const preview: Preview = {
   parameters: {

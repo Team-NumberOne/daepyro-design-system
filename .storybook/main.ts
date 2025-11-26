@@ -30,6 +30,28 @@ const config: StorybookConfig = {
         "@": path.resolve(dirname, "../src"),
       };
     }
+    // React를 development 모드로 설정하여 production 빌드 체크 에러 방지
+    config.define = {
+      ...config.define,
+      "process.env.NODE_ENV": JSON.stringify("development"),
+      "import.meta.env.MODE": JSON.stringify("development"),
+      "import.meta.env.DEV": "true",
+      "import.meta.env.PROD": "false",
+      __DEV__: "true",
+      __PROD__: "false",
+    };
+    // Storybook은 항상 development 모드로 실행되어야 함
+    config.mode = "development";
+    // React를 development 빌드로 강제
+    if (config.optimizeDeps) {
+      config.optimizeDeps.esbuildOptions = {
+        ...config.optimizeDeps?.esbuildOptions,
+        define: {
+          ...config.optimizeDeps?.esbuildOptions?.define,
+          "process.env.NODE_ENV": '"development"',
+        },
+      };
+    }
     return config;
   },
 };
