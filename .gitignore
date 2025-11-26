@@ -3,3 +3,8 @@ dist
 
 *storybook.log
 storybook-static
+.env
+
+# Coverage reports
+coverage
+*.lcov

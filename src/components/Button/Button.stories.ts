@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { within } from "@testing-library/react";
+import { expect } from "vitest";
 import { Button } from "./Button";
 
 const meta = {
@@ -31,11 +33,27 @@ export const Default: Story = {
   args: {
     children: "Button",
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Button" });
+
+    // 버튼이 렌더링되었는지 확인
+    await expect(button).toBeInTheDocument();
+    // 버튼이 활성화되어 있는지 확인
+    await expect(button).not.toBeDisabled();
+  },
 };
 
 export const WithText: Story = {
   args: {
     children: "클릭하세요",
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "클릭하세요" });
+
+    await expect(button).toBeInTheDocument();
+    await expect(button).toHaveTextContent(args.children as string);
   },
 };
 
@@ -44,10 +62,26 @@ export const Disabled: Story = {
     children: "Disabled Button",
     disabled: true,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Disabled Button" });
+
+    // 비활성화 상태 확인
+    await expect(button).toBeDisabled();
+    // aria-disabled 속성 확인
+    await expect(button).toHaveAttribute("disabled");
+  },
 };
 
 export const LongText: Story = {
   args: {
     children: "이것은 매우 긴 텍스트를 가진 버튼입니다",
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button");
+
+    await expect(button).toBeInTheDocument();
+    await expect(button).toHaveTextContent(args.children as string);
   },
 };

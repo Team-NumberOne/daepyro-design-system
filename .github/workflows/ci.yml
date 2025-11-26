@@ -44,6 +44,21 @@ jobs:
       - name: Run tests
         run: pnpm test --run
 
+      - name: Run accessibility tests
+        run: pnpm test --run --project storybook
+        env:
+          STORYBOOK_A11Y_TEST: "error"
+
+      - name: Generate coverage report
+        run: pnpm test:coverage
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 30
+
       - name: Build
         run: pnpm run build
 
@@ -53,4 +68,3 @@ jobs:
           name: dist
           path: dist/
           retention-days: 7
-

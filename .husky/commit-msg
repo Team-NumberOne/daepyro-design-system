@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 커밋 메시지 컨벤션 체크
+pnpm exec commitlint --edit "$1"
+
+
