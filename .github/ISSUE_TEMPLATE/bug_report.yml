@@ -1,0 +1,96 @@
+name: 🐛 버그 리포트
+description: 컴포넌트나 디자인 시스템의 버그를 신고해주세요
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        버그를 신고해주셔서 감사합니다! 아래 정보를 작성해주시면 빠르게 해결할 수 있습니다.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 버그 설명
+      description: 버그에 대한 명확하고 간결한 설명을 작성해주세요
+      placeholder: 예: Button 컴포넌트가 disabled 상태에서도 클릭 이벤트가 발생합니다
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 재현 방법
+      description: 버그를 재현하는 단계를 작성해주세요
+      placeholder: |
+        1. Button 컴포넌트를 disabled 상태로 설정
+        2. 버튼 클릭
+        3. onClick 이벤트가 발생함
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 예상 동작
+      description: 예상되는 정상적인 동작을 설명해주세요
+      placeholder: disabled 상태에서는 onClick 이벤트가 발생하지 않아야 합니다
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 동작
+      description: 실제로 발생한 동작을 설명해주세요
+      placeholder: disabled 상태에서도 onClick 이벤트가 발생합니다
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: 관련 컴포넌트
+      description: 버그가 발생한 컴포넌트를 선택해주세요
+      options:
+        - Button
+        - 기타 (아래에 명시)
+        - 전체 시스템
+    validations:
+      required: true
+
+  - type: input
+    id: component-other
+    attributes:
+      label: 기타 컴포넌트명
+      placeholder: 컴포넌트 이름을 입력해주세요
+    visible: github.event.issue.body.component == '기타 (아래에 명시)'
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 환경 정보
+      description: 다음 정보를 포함해주세요
+      value: |
+        - 패키지 버전: @daepyro/design-system@x.x.x
+        - React 버전: 
+        - 브라우저: 
+        - OS:
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 스크린샷
+      description: 가능하다면 스크린샷이나 GIF를 첨부해주세요
+      placeholder: 스크린샷을 드래그 앤 드롭하거나 붙여넣기 해주세요
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 추가 정보
+      description: 기타 참고할 만한 정보가 있다면 작성해주세요
+      placeholder: 관련 이슈, 스토리북 링크 등
+
+
