@@ -24,11 +24,10 @@ const config: StorybookConfig = {
       config.plugins.push(vanillaExtractPlugin());
     }
     // Storybook에서도 alias 사용 가능하도록 설정
+    // @storybook/* 패키지는 node_modules에서 찾아야 하므로 alias에서 제외
     if (config.resolve) {
       config.resolve.alias = {
-        ...config.resolve.alias,
         "@": path.resolve(dirname, "../src"),
-        "@storybook": path.resolve(dirname, "../.storybook"),
       };
     }
     return config;
