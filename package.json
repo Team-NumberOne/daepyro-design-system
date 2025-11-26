@@ -17,9 +17,11 @@
     "dist"
   ],
   "scripts": {
-    "check": "biome check ./src",
-    "lint": "biome lint ./src",
+    "check": "biome check --write ./src",
+    "lint": "biome lint --write ./src",
     "format": "biome format --write ./src",
+    "check:ci": "biome check ./src",
+    "lint:ci": "biome lint ./src",
     "build": "vite build",
     "prepublishOnly": "pnpm build",
     "test": "vitest",

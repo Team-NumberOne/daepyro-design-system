@@ -14,7 +14,12 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["vite/client", "@testing-library/jest-dom"]
+    "types": ["vite/client", "@testing-library/jest-dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@storybook/*": ["./.storybook/*"]
+    }
   },
-  "include": ["src", "vitest.setup.ts", "vitest.shims.d.ts"]
+  "include": ["src", "vitest.setup.ts", "vitest.shims.d.ts", ".storybook"]
 }

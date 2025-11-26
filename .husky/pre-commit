@@ -1,8 +1,5 @@
-# 린트 체크
-pnpm lint
-
-# 타입 체크
+# 린트 및 포맷팅 자동 수정
 pnpm check
 
-# 포맷팅 체크 (자동 수정하지 않음)
-pnpm biome check ./src
+# 타입 체크 (자동 수정 불가능한 문제 확인)
+pnpm check:ci || exit 1

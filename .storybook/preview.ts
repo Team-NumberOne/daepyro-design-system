@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
+// Storybook에서 play 함수의 jest-dom matcher를 사용하기 위해 import
+import "@testing-library/jest-dom/vitest";
 
 const preview: Preview = {
   parameters: {

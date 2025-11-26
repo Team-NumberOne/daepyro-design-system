@@ -14,6 +14,12 @@ export default defineConfig({
       exclude: ["src/**/*.stories.ts", "src/**/*.test.ts"],
     }),
   ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+      "@storybook": resolve(__dirname, "./.storybook"),
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
