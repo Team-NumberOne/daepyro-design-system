@@ -52,3 +52,17 @@ export const colors = {
 		900: "#69120D",
 	},
 } as const;
+
+export type Colors = typeof colors;
+export type ColorPalette = keyof Colors;
+export type ColorShade =
+	| 50
+	| 100
+	| 200
+	| 300
+	| 400
+	| 500
+	| 600
+	| 700
+	| 800
+	| 900;

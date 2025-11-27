@@ -60,3 +60,10 @@ export const typography = {
 		widest: "0.1em",
 	},
 } as const;
+
+export type Typography = typeof typography;
+export type FontFamily = keyof Typography["fontFamily"];
+export type FontSize = keyof Typography["fontSize"];
+export type FontWeight = keyof Typography["fontWeight"];
+export type LineHeight = keyof Typography["lineHeight"];
+export type LetterSpacing = keyof Typography["letterSpacing"];

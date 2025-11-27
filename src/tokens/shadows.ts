@@ -5,3 +5,6 @@ export const shadows = {
 	dimmed: "0 20px 40px rgba(0, 0, 0, 0.10), 0 8px 16px rgba(0, 0, 0, 0.10)",
 	none: "none",
 } as const;
+
+export type Shadows = typeof shadows;
+export type ShadowKey = keyof Shadows;

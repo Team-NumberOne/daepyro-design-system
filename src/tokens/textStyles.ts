@@ -1,8 +1,21 @@
-import { typography } from "./typography";
+import {
+	type FontSize,
+	type FontWeight,
+	type LineHeight,
+	type Typography,
+	typography,
+} from "./typography";
 
 const baseTextStyle = {
 	fontFamily: typography.fontFamily.sans,
 } as const;
+
+export type TextStyle = {
+	fontFamily: Typography["fontFamily"]["sans"];
+	fontSize: Typography["fontSize"][FontSize];
+	fontWeight: Typography["fontWeight"][FontWeight];
+	lineHeight: Typography["lineHeight"][LineHeight];
+};
 
 export const textStyles = {
 	heading1: {
@@ -60,3 +73,6 @@ export const textStyles = {
 		lineHeight: typography.lineHeight.relaxed,
 	},
 } as const;
+
+export type TextStyles = typeof textStyles;
+export type TextStyleKey = keyof TextStyles;
