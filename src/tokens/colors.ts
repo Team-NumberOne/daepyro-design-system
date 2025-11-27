@@ -51,4 +51,4 @@ export const colors = {
 		800: "#8A1811",
 		900: "#69120D",
 	},
-};
+} as const;
