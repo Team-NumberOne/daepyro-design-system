@@ -75,6 +75,71 @@ jobs:
           echo "Updated version to: $VERSION"
           cat package.json | grep '"version"'
 
+      - name: Extract CHANGELOG for version
+        id: get_changelog
+        run: |
+          VERSION=${{ steps.get_version.outputs.version }}
+
+          # Node.js 스크립트로 CHANGELOG 추출
+          node << 'SCRIPT'
+          const fs = require('fs');
+          const version = process.env.VERSION;
+          const outputFile = process.env.GITHUB_OUTPUT;
+
+          const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
+          const lines = changelog.split('\n');
+
+          let startIndex = -1;
+          let endIndex = lines.length;
+
+          // 버전 섹션 찾기
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].match(new RegExp(`^## \\[${version.replace(/\./g, '\\.')}\\]`))) {
+              startIndex = i + 1;
+              break;
+            }
+          }
+
+          // Unreleased 섹션 찾기 (버전 섹션이 없는 경우)
+          if (startIndex === -1) {
+            for (let i = 0; i < lines.length; i++) {
+              if (lines[i].match(/^## \[Unreleased\]/)) {
+                startIndex = i + 1;
+                break;
+              }
+            }
+          }
+
+          // 다음 버전 섹션 또는 링크 섹션 찾기
+          if (startIndex !== -1) {
+            for (let i = startIndex; i < lines.length; i++) {
+              if (lines[i].match(/^## \[[0-9]/) || lines[i].match(/^\[Unreleased\]:/)) {
+                endIndex = i;
+                break;
+              }
+            }
+            
+            const changelogContent = lines.slice(startIndex, endIndex)
+              .join('\n')
+              .replace(/^\s+|\s+$/g, ''); // 앞뒤 공백 제거
+            
+            // GitHub Actions output에 저장
+            if (changelogContent) {
+              fs.appendFileSync(outputFile, `changelog<<EOF\n${changelogContent}\nEOF\n`);
+              console.log('Extracted CHANGELOG:');
+              console.log(changelogContent);
+            } else {
+              fs.appendFileSync(outputFile, `changelog<<EOF\nNo changelog entry found for version ${version}\nEOF\n`);
+              console.log(`No changelog entry found for version ${version}`);
+            }
+          } else {
+            fs.appendFileSync(outputFile, `changelog<<EOF\nNo changelog entry found for version ${version}\nEOF\n`);
+            console.log(`No changelog entry found for version ${version}`);
+          }
+          SCRIPT
+        env:
+          VERSION: ${{ steps.get_version.outputs.version }}
+
       - name: Publish to GitHub Packages
         run: pnpm publish --no-git-checks
         env:
@@ -85,6 +150,14 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ steps.get_version.outputs.version }}
+          body: |
+            ## Changes in ${{ steps.get_version.outputs.version }}
+
+            ${{ steps.get_changelog.outputs.changelog }}
+
+            ---
+
+            **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ github.event.before }}...${{ github.ref_name }}
           draft: false
           prerelease: false
         env:
