@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
+// Pretendard 폰트 CSS import
+import "pretendard/dist/web/static/pretendard.css";
 // @testing-library/jest-dom/vitest는 vitest.setup.ts에서만 import합니다.
 // preview.ts는 Storybook 빌드 환경에서도 실행되므로 vitest 관련 import를 하지 않습니다.
 
