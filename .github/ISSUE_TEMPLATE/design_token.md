@@ -39,11 +39,10 @@ labels: design-token
 
 Figma 링크, 색상 코드, 스크린샷 등을 첨부해주세요
 
-- Figma 링크: 
-- 색상 코드: 
+- Figma 링크:
+- 색상 코드:
 - 스크린샷:
 
 ## 변경 사항
 
 - [ ] 이것은 기존 토큰을 수정하는 요청입니다 (Breaking Change 가능)
-
