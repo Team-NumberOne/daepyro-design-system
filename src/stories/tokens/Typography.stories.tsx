@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { colors } from "@/tokens";
 import { typography } from "../../tokens/typography";
 
 const meta = {
@@ -28,7 +29,7 @@ export const FontFamily: Story = {
 						<div
 							style={{
 								fontSize: "0.875rem",
-								color: "#666",
+								color: colors.grey[400],
 								marginBottom: "0.5rem",
 							}}
 						>
@@ -39,7 +40,7 @@ export const FontFamily: Story = {
 								fontFamily: typography.fontFamily.sans,
 								fontSize: "1.5rem",
 								padding: "1rem",
-								backgroundColor: "#f5f5f5",
+								backgroundColor: colors.base.white,
 								borderRadius: "8px",
 							}}
 						>
@@ -48,7 +49,7 @@ export const FontFamily: Story = {
 						<div
 							style={{
 								fontSize: "0.75rem",
-								color: "#999",
+								color: colors.grey[700],
 								marginTop: "0.5rem",
 								fontFamily: "monospace",
 							}}
@@ -60,7 +61,7 @@ export const FontFamily: Story = {
 						<div
 							style={{
 								fontSize: "0.875rem",
-								color: "#666",
+								color: colors.grey[600],
 								marginBottom: "0.5rem",
 							}}
 						>
@@ -71,7 +72,7 @@ export const FontFamily: Story = {
 								fontFamily: typography.fontFamily.mono,
 								fontSize: "1.5rem",
 								padding: "1rem",
-								backgroundColor: "#f5f5f5",
+								backgroundColor: colors.base.white,
 								borderRadius: "8px",
 							}}
 						>
@@ -80,7 +81,7 @@ export const FontFamily: Story = {
 						<div
 							style={{
 								fontSize: "0.75rem",
-								color: "#999",
+								color: colors.grey[700],
 								marginTop: "0.5rem",
 								fontFamily: "monospace",
 							}}
@@ -110,7 +111,7 @@ export const FontSize: Story = {
 								alignItems: "baseline",
 								gap: "1rem",
 								padding: "0.75rem",
-								backgroundColor: "#f5f5f5",
+								backgroundColor: colors.base.white,
 								borderRadius: "8px",
 							}}
 						>
@@ -119,7 +120,7 @@ export const FontSize: Story = {
 									minWidth: "60px",
 									fontSize: "0.875rem",
 									fontWeight: 600,
-									color: "#666",
+									color: colors.grey[600],
 								}}
 							>
 								{key}
@@ -136,7 +137,7 @@ export const FontSize: Story = {
 							<div
 								style={{
 									fontSize: "0.75rem",
-									color: "#999",
+									color: colors.grey[700],
 									fontFamily: "monospace",
 								}}
 							>
@@ -168,7 +169,7 @@ export const FontWeight: Story = {
 								alignItems: "center",
 								gap: "1rem",
 								padding: "0.75rem",
-								backgroundColor: "#f5f5f5",
+								backgroundColor: colors.base.white,
 								borderRadius: "8px",
 							}}
 						>
@@ -176,7 +177,7 @@ export const FontWeight: Story = {
 								style={{
 									minWidth: "100px",
 									fontSize: "0.875rem",
-									color: "#666",
+									color: colors.grey[600],
 								}}
 							>
 								{key}
@@ -194,7 +195,7 @@ export const FontWeight: Story = {
 							<div
 								style={{
 									fontSize: "0.75rem",
-									color: "#999",
+									color: colors.grey[700],
 									fontFamily: "monospace",
 								}}
 							>
@@ -221,7 +222,7 @@ export const LineHeight: Story = {
 							<div
 								style={{
 									fontSize: "0.875rem",
-									color: "#666",
+									color: colors.grey[600],
 									marginBottom: "0.5rem",
 								}}
 							>
@@ -233,7 +234,7 @@ export const LineHeight: Story = {
 									lineHeight: value,
 									fontFamily: typography.fontFamily.sans,
 									padding: "1rem",
-									backgroundColor: "#f5f5f5",
+									backgroundColor: colors.base.white,
 									borderRadius: "8px",
 									width: "300px",
 								}}

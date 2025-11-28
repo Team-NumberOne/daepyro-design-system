@@ -1,4 +1,5 @@
 import {
+	type FontFamily,
 	type FontSize,
 	type FontWeight,
 	type LineHeight,
@@ -11,7 +12,7 @@ const baseTextStyle = {
 } as const;
 
 export type TextStyle = {
-	fontFamily: Typography["fontFamily"]["sans"];
+	fontFamily: Typography["fontFamily"][FontFamily];
 	fontSize: Typography["fontSize"][FontSize];
 	fontWeight: Typography["fontWeight"][FontWeight];
 	lineHeight: Typography["lineHeight"][LineHeight];

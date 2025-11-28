@@ -48,7 +48,8 @@ function ColorPaletteView({
 				}}
 			>
 				{shades.map(([shade, color]) => {
-					const isLight = parseInt(shade, 10) < 500;
+					const shadeNum = parseInt(shade, 10);
+					const isLight = !Number.isNaN(shadeNum) && shadeNum < 500;
 					const textColor = isLight ? "#000" : "#fff";
 
 					return (

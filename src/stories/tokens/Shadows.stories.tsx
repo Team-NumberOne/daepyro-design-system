@@ -68,7 +68,7 @@ export const AllShadows: Story = {
 								style={{
 									fontSize: "0.875rem",
 									fontWeight: 600,
-									color: "#333",
+									color: colors.grey[700],
 									textAlign: "center",
 								}}
 							>
@@ -77,7 +77,7 @@ export const AllShadows: Story = {
 							<div
 								style={{
 									fontSize: "0.7rem",
-									color: "#999",
+									color: colors.grey[400],
 									fontFamily: "monospace",
 									textAlign: "center",
 									wordBreak: "break-all",

@@ -71,7 +71,7 @@ export const AllRadius: Story = {
 								style={{
 									fontSize: "0.875rem",
 									fontWeight: 600,
-									color: "#333",
+									color: colors.grey[700],
 								}}
 							>
 								{key}
@@ -79,7 +79,7 @@ export const AllRadius: Story = {
 							<div
 								style={{
 									fontSize: "0.75rem",
-									color: "#999",
+									color: colors.grey[400],
 									fontFamily: "monospace",
 								}}
 							>
