@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@testing-library/react";
+import { Button } from "@/components/Button/Button";
 import { getExpect, isTestEnvironment } from "../../../.storybook/utils";
-import { Button } from "./Button";
 
 // vitest.config.ts에서 globals: true로 설정되어 있으므로 전역 expect 사용 가능
 // @testing-library/jest-dom/vitest는 vitest.setup.ts에서 import됨

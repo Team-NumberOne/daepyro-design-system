@@ -28,6 +28,9 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         "@": path.resolve(dirname, "../src"),
+        "@/components": path.resolve(dirname, "../src/components"),
+        "@/tokens": path.resolve(dirname, "../src/tokens"),
+        "@/stories": path.resolve(dirname, "../src/stories"),
       };
     }
     // React를 development 모드로 설정하여 production 빌드 체크 에러 방지
