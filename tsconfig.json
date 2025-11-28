@@ -17,7 +17,10 @@
     "types": ["vite/client", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/tokens/*": ["./src/tokens/*"],
+      "@/stories/*": ["./src/stories/*"]
     }
   },
   "include": ["src", "vitest.setup.ts", "vitest.shims.d.ts", ".storybook"]

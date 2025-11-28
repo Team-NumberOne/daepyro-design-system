@@ -17,6 +17,9 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
+      "@/components": resolve(__dirname, "./src/components"),
+      "@/tokens": resolve(__dirname, "./src/tokens"),
+      "@/stories": resolve(__dirname, "./src/stories"),
     },
   },
   build: {
