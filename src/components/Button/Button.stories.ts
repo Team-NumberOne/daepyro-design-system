@@ -3,10 +3,6 @@ import { within } from "@testing-library/react";
 import { Button } from "@/components/Button/Button";
 import { getExpect, isTestEnvironment } from "../../../.storybook/utils";
 
-// vitest.config.ts에서 globals: true로 설정되어 있으므로 전역 expect 사용 가능
-// @testing-library/jest-dom/vitest는 vitest.setup.ts에서 import됨
-// isTestEnvironment가 true일 때만 expect를 사용하므로 안전합니다
-
 const meta = {
 	title: "Components/Button",
 	component: Button,
@@ -18,6 +14,11 @@ const meta = {
 		children: {
 			control: "text",
 			description: "버튼 내부에 표시될 내용",
+		},
+		variant: {
+			control: "select",
+			options: ["default", "gray", "primary"],
+			description: "버튼의 스타일 변형",
 		},
 		disabled: {
 			control: "boolean",
@@ -43,9 +44,7 @@ export const Default: Story = {
 				const canvas = within(canvasElement);
 				const button = canvas.getByRole("button", { name: "Button" });
 
-				// 버튼이 렌더링되었는지 확인
 				await expect(button).toBeInTheDocument();
-				// 버튼이 활성화되어 있는지 확인
 				await expect(button).not.toBeDisabled();
 			}
 		: undefined,
@@ -80,9 +79,7 @@ export const Disabled: Story = {
 					name: "Disabled Button",
 				});
 
-				// 비활성화 상태 확인
 				await expect(button).toBeDisabled();
-				// aria-disabled 속성 확인
 				await expect(button).toHaveAttribute("disabled");
 			}
 		: undefined,
@@ -100,6 +97,77 @@ export const LongText: Story = {
 
 				await expect(button).toBeInTheDocument();
 				await expect(button).toHaveTextContent(args.children as string);
+			}
+		: undefined,
+};
+
+export const VariantDefault: Story = {
+	args: {
+		children: "Default Button",
+		variant: "default",
+	},
+	play: isTestEnvironment
+		? async ({ canvasElement }) => {
+				const expect = getExpect();
+				const canvas = within(canvasElement);
+				const button = canvas.getByRole("button", { name: "Default Button" });
+
+				await expect(button).toBeInTheDocument();
+				await expect(button).toHaveAttribute("data-variant", "default");
+			}
+		: undefined,
+};
+
+export const VariantGray: Story = {
+	args: {
+		children: "Gray Button",
+		variant: "gray",
+	},
+	play: isTestEnvironment
+		? async ({ canvasElement }) => {
+				const expect = getExpect();
+				const canvas = within(canvasElement);
+				const button = canvas.getByRole("button", { name: "Gray Button" });
+
+				await expect(button).toBeInTheDocument();
+				await expect(button).toHaveAttribute("data-variant", "gray");
+			}
+		: undefined,
+};
+
+export const VariantPrimary: Story = {
+	args: {
+		children: "Primary Button",
+		variant: "primary",
+	},
+	play: isTestEnvironment
+		? async ({ canvasElement }) => {
+				const expect = getExpect();
+				const canvas = within(canvasElement);
+				const button = canvas.getByRole("button", { name: "Primary Button" });
+
+				await expect(button).toBeInTheDocument();
+				await expect(button).toHaveAttribute("data-variant", "primary");
+			}
+		: undefined,
+};
+
+export const WithIcon: Story = {
+	args: {
+		children: "알림",
+		variant: "primary",
+		icon: "🔔",
+		style: { width: "300px" },
+	},
+	play: isTestEnvironment
+		? async ({ canvasElement }) => {
+				const expect = getExpect();
+				const canvas = within(canvasElement);
+				const button = canvas.getByRole("button", { name: "🔔 알림" });
+
+				await expect(button).toBeInTheDocument();
+				await expect(button).toHaveTextContent("🔔");
+				await expect(button).toHaveTextContent("알림");
 			}
 		: undefined,
 };
