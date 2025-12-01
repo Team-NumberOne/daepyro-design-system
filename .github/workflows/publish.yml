@@ -33,6 +33,7 @@ jobs:
           cache: "pnpm"
           registry-url: "https://npm.pkg.github.com"
           scope: "@team-numberone"
+          always-auth: true
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
