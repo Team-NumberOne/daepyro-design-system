@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2025-12-01
+
+### Fixed
+
+- GitHub Actions 배포 시 인증 토큰 문제 수정
+- `.npmrc` 파일을 저장소에서 제거하고 `setup-node`가 자동 생성하도록 변경
+
 ## [1.0.1] - 2025-12-01
 
 ### Added
@@ -23,5 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 초기 릴리스
 
-[Unreleased]: https://github.com/Team-NumberOne/daepyro-design-system/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/Team-NumberOne/daepyro-design-system/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/Team-NumberOne/daepyro-design-system/releases/tag/v1.0.2
 [1.0.1]: https://github.com/Team-NumberOne/daepyro-design-system/releases/tag/v1.0.1
