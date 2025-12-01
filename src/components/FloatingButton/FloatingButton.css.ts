@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { colors, radius, shadows, textStyles } from "../../tokens";
+import { colors, radius, shadows, textStyles } from "@/tokens";
 
 export const floatingButton = style({
 	...textStyles.heading4,

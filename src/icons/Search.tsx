@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export interface PlusIconProps extends SVGProps<SVGSVGElement> {
+export interface SearchProps extends SVGProps<SVGSVGElement> {
 	/**
 	 * 아이콘 크기
 	 * @default 24
@@ -13,11 +13,11 @@ export interface PlusIconProps extends SVGProps<SVGSVGElement> {
 	"aria-label"?: string;
 }
 
-export const PlusIcon = ({
+export const Search = ({
 	size = 24,
 	"aria-label": ariaLabel,
 	...props
-}: PlusIconProps) => {
+}: SearchProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -30,19 +30,13 @@ export const PlusIcon = ({
 			{...props}
 		>
 			<path
-				fillRule="evenodd"
-				clipRule="evenodd"
-				d="M20 13.25L4 13.25L4 10.75L20 10.75L20 13.25Z"
 				fill="currentColor"
-			/>
-			<path
 				fillRule="evenodd"
+				d="M10.5 18.5a7.97 7.97 0 0 0 4.87-1.653l4.655 4.655 1.477-1.477-4.655-4.655A8 8 0 1 0 10.5 18.5m6.5-8a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"
 				clipRule="evenodd"
-				d="M13.25 4L13.25 20L10.75 20L10.75 4L13.25 4Z"
-				fill="currentColor"
 			/>
 		</svg>
 	);
 };
 
-PlusIcon.displayName = "PlusIcon";
+Search.displayName = "Search";

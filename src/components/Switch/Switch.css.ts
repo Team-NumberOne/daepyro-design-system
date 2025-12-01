@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { colors, radius } from "../../tokens";
+import { colors, radius } from "@/tokens";
 
 const SWITCH_WIDTH = "38px";
 const SWITCH_HEIGHT = "22px";

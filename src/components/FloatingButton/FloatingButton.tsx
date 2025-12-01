@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, MouseEvent } from "react";
 import { forwardRef, useState } from "react";
-import { PlusIcon } from "../../icons";
+import { Plus } from "@/icons";
 import { contentWrapper, floatingButton } from "./FloatingButton.css";
 
 export interface FloatingButtonProps
@@ -60,7 +60,7 @@ export const FloatingButton = forwardRef<
 				{...rest}
 			>
 				<span className={contentWrapper}>{children || null}</span>
-				<PlusIcon aria-label="+" />
+				<Plus aria-label="+" />
 			</button>
 		);
 	},

@@ -28,6 +28,11 @@ export default defineConfig({
       ],
     }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(dirname, "src"),
+    },
+  },
   build: {
     lib: {
       entry: path.resolve(dirname, "src/index.ts"),
@@ -76,6 +81,7 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/*.config.{ts,js}",
         ".storybook/",
+        "src/icons/**",
       ],
       thresholds: {
         lines: 80,
