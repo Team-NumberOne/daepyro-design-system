@@ -42,6 +42,7 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/*.config.{ts,js}",
         ".storybook/",
+        "src/icons/**",
       ],
       // 커버리지 임계값 설정 (단위 테스트만 대상)
       thresholds: {

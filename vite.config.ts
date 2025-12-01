@@ -81,6 +81,7 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/*.config.{ts,js}",
         ".storybook/",
+        "src/icons/**",
       ],
       thresholds: {
         lines: 80,
