@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2025-12-01
+
+### Fixed
+- Chip.types.ts와 index.ts 파일 복원 (TypeScript 타입 정의 오류 수정)
+
 ## [1.0.2] - 2025-12-01
 
 ### Fixed
@@ -30,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 초기 릴리스
 
-[Unreleased]: https://github.com/Team-NumberOne/daepyro-design-system/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/Team-NumberOne/daepyro-design-system/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/Team-NumberOne/daepyro-design-system/releases/tag/v1.0.3
 [1.0.2]: https://github.com/Team-NumberOne/daepyro-design-system/releases/tag/v1.0.2
 [1.0.1]: https://github.com/Team-NumberOne/daepyro-design-system/releases/tag/v1.0.1
