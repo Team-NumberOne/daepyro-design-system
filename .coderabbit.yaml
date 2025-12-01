@@ -1,28 +1,20 @@
-# CodeRabbit 설정 파일
-# 모든 브랜치에서 자동 리뷰 활성화
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "ko-KR"
+early_access: false
 
 reviews:
-  # 모든 브랜치에서 리뷰 활성화
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
   review_status: true
-  # 기본 브랜치가 아닌 브랜치에서도 리뷰 실행
-  base_branches:
-    - main
-    - develop
-    - "feature/**"
-    - "fix/**"
-    - "release/**"
-
-# 리뷰 범위 설정
-language:
-  # TypeScript, JavaScript 파일 리뷰
-  typescript:
+  collapse_walkthrough: false
+  auto_review:
     enabled: true
-  javascript:
-    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - develop
 
-# 리뷰 스타일 설정
-review:
-  # 간결한 리뷰
-  concise: true
-  # 코드 개선 제안 포함
-  suggestions: true
+chat:
+  auto_reply: true

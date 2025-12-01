@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { colors } from "@/tokens/colors";
-import { type RadiusKey, radius } from "@/tokens/radius";
+import { colors } from "../../tokens/colors.css";
+import { type RadiusKey, radius } from "../../tokens/radius.css";
 
 const meta = {
 	title: "Design Tokens/Radius",

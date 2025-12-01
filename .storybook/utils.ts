@@ -14,18 +14,24 @@ export const isTestEnvironment =
 /**
  * vitest 환경에서 전역 expect를 안전하게 가져옵니다.
  * isTestEnvironment가 true일 때만 호출해야 하며, 이 경우 expect는 항상 정의되어 있습니다.
+ * @testing-library/jest-dom/vitest를 통해 jest-dom matcher가 포함된 expect를 반환합니다.
  *
- * @returns vitest의 expect 함수
+ * @returns vitest의 expect 함수 (jest-dom matcher 포함)
  * @throws isTestEnvironment가 false일 때 호출하면 에러 발생
  */
-export function getExpect(): typeof import("vitest").expect {
+export function getExpect() {
   if (!isTestEnvironment) {
     throw new Error(
       "expect는 테스트 환경에서만 사용할 수 있습니다. isTestEnvironment를 확인해주세요."
     );
   }
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return (globalThis as { expect: typeof import("vitest").expect }).expect!;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-explicit-any
+  // @testing-library/jest-dom/vitest가 vitest의 expect 타입을 모듈 확장을 통해 확장하지만,
+  // 함수 반환 타입에서는 확장된 타입을 직접 참조할 수 없습니다.
+  // 따라서 타입 단언을 사용하여 jest-dom matcher가 포함된 expect를 반환합니다.
+  // 실제 런타임에서는 @testing-library/jest-dom/vitest가 이미 로드되어 있으므로
+  // jest-dom matcher들이 정상적으로 작동합니다.
+  return (globalThis as unknown as { expect: any }).expect!;
 }
 
 /**

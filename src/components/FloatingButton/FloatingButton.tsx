@@ -1,27 +1,18 @@
-import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
+import type { ButtonHTMLAttributes, MouseEvent } from "react";
 import { forwardRef, useState } from "react";
-import { buttonVariants, contentWrapper, iconWrapper } from "./Button.css";
+import { PlusIcon } from "../../icons";
+import { contentWrapper, floatingButton } from "./FloatingButton.css";
 
-type ButtonVariant = keyof typeof buttonVariants;
+export interface FloatingButtonProps
+	extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	/**
-	 * 버튼의 스타일 변형
-	 * @default "default"
-	 */
-	variant?: ButtonVariant;
-	/**
-	 * 버튼 왼쪽에 표시할 아이콘
-	 */
-	icon?: ReactNode;
-}
-
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const FloatingButton = forwardRef<
+	HTMLButtonElement,
+	FloatingButtonProps
+>(
 	(
 		{
 			children,
-			variant = "default",
-			icon,
 			type = "button",
 			className,
 			disabled,
@@ -52,7 +43,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			onMouseLeave?.(e);
 		};
 
-		const mergedClassName = [buttonVariants[variant], className]
+		const mergedClassName = [floatingButton, className]
 			.filter(Boolean)
 			.join(" ");
 
@@ -61,7 +52,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				type={type}
 				className={mergedClassName}
-				data-variant={variant}
 				data-pressed={isPressed ? "true" : "false"}
 				disabled={isDisabled}
 				onMouseDown={handleMouseDown}
@@ -69,13 +59,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 				onMouseLeave={handleMouseLeave}
 				{...rest}
 			>
-				<span className={iconWrapper} data-icon>
-					{icon || null}
-				</span>
 				<span className={contentWrapper}>{children || null}</span>
+				<PlusIcon aria-label="+" />
 			</button>
 		);
 	},
 );
 
-Button.displayName = "Button";
+FloatingButton.displayName = "FloatingButton";

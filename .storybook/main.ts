@@ -1,5 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import tsconfigPaths from "vite-tsconfig-paths";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -21,15 +22,22 @@ const config: StorybookConfig = {
   },
   async viteFinal(config) {
     if (config.plugins) {
+      config.plugins.push(
+        tsconfigPaths({
+          root: path.resolve(dirname, ".."),
+        })
+      );
       config.plugins.push(vanillaExtractPlugin());
     }
     // Storybook에서도 alias 사용 가능하도록 설정
     // @storybook/* 패키지는 node_modules에서 찾아야 하므로 alias에서 제외
     if (config.resolve) {
       config.resolve.alias = {
+        ...config.resolve.alias,
         "@": path.resolve(dirname, "../src"),
         "@/components": path.resolve(dirname, "../src/components"),
         "@/tokens": path.resolve(dirname, "../src/tokens"),
+        "@/icons": path.resolve(dirname, "../src/icons"),
         "@/stories": path.resolve(dirname, "../src/stories"),
       };
     }
