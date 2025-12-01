@@ -2,6 +2,7 @@ import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react-swc";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import tsconfigPaths from "vite-tsconfig-paths";
+import dts from "vite-plugin-dts";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
@@ -13,7 +14,45 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), vanillaExtractPlugin()],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    vanillaExtractPlugin(),
+    dts({
+      insertTypesEntry: true,
+      exclude: [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.stories.ts",
+        "**/*.stories.tsx",
+      ],
+    }),
+  ],
+  build: {
+    lib: {
+      entry: path.resolve(dirname, "src/index.ts"),
+      name: "DesignSystem",
+      formats: ["es", "cjs"],
+      fileName: (format) => `index.${format === "es" ? "mjs" : "js"}`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom", "react/jsx-runtime"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          "react/jsx-runtime": "react/jsx-runtime",
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith(".css")) {
+            return "styles.css";
+          }
+          return assetInfo.name || "asset";
+        },
+      },
+    },
+    emptyOutDir: true,
+  },
   optimizeDeps: {
     exclude: [
       "@storybook/addon-docs",
