@@ -1,5 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-import { colors, radius, shadows, textStyles } from "../../tokens";
+import { colors, radius, shadows, textStyles } from "@/tokens";
 
 const baseButton = style({
 	...textStyles.heading4,

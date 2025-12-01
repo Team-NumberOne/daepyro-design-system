@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, MouseEvent } from "react";
 import { forwardRef, useState } from "react";
-import { Plus } from "../../icons";
+import { Plus } from "@/icons";
 import { contentWrapper, floatingButton } from "./FloatingButton.css";
 
 export interface FloatingButtonProps

@@ -2,8 +2,11 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "types": ["vite/client", "@testing-library/jest-dom", "@storybook/addon-vitest"]
+    "types": [
+      "vite/client",
+      "@testing-library/jest-dom",
+      "@storybook/addon-vitest"
+    ]
   },
   "include": ["../src/**/*", "**/*"]
 }
-

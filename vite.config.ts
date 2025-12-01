@@ -28,6 +28,14 @@ export default defineConfig({
       ],
     }),
   ],
+  resolve: {
+    alias: [
+      {
+        find: /^@\/(.*)$/,
+        replacement: path.resolve(dirname, "src/$1"),
+      },
+    ],
+  },
   build: {
     lib: {
       entry: path.resolve(dirname, "src/index.ts"),
