@@ -1,4 +1,4 @@
-export { Alram } from "./Alram";
+export { Alarm } from "./Alarm";
 export { ArrowDown } from "./ArrowDown";
 export { ArrowLeft } from "./ArrowLeft";
 export { ArrowRight } from "./ArrowRight";
@@ -19,7 +19,7 @@ export { Family } from "./Family";
 export { Filter } from "./Filter";
 export { Funding } from "./Funding";
 export { Good } from "./Good";
-export { HambugerBar } from "./HambugerBar";
+export { HamburgerBar } from "./HamburgerBar";
 export { Heart } from "./Heart";
 export { Home } from "./Home";
 export { Location } from "./Location";

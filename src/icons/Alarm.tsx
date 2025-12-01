@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export interface AlramProps extends SVGProps<SVGSVGElement> {
+export interface AlarmProps extends SVGProps<SVGSVGElement> {
 	/**
 	 * 아이콘 크기
 	 * @default 24
@@ -13,11 +13,11 @@ export interface AlramProps extends SVGProps<SVGSVGElement> {
 	"aria-label"?: string;
 }
 
-export const Alram = ({
+export const Alarm = ({
 	size = 24,
 	"aria-label": ariaLabel,
 	...props
-}: AlramProps) => {
+}: AlarmProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -43,4 +43,4 @@ export const Alram = ({
 	);
 };
 
-Alram.displayName = "Alram";
+Alarm.displayName = "Alarm";

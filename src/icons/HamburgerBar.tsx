@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-export interface HambugerBarProps extends SVGProps<SVGSVGElement> {
+export interface HamburgerBarProps extends SVGProps<SVGSVGElement> {
 	/**
 	 * 아이콘 크기
 	 * @default 24
@@ -13,11 +13,11 @@ export interface HambugerBarProps extends SVGProps<SVGSVGElement> {
 	"aria-label"?: string;
 }
 
-export const HambugerBar = ({
+export const HamburgerBar = ({
 	size = 24,
 	"aria-label": ariaLabel,
 	...props
-}: HambugerBarProps) => {
+}: HamburgerBarProps) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -39,4 +39,4 @@ export const HambugerBar = ({
 	);
 };
 
-HambugerBar.displayName = "HambugerBar";
+HamburgerBar.displayName = "HamburgerBar";
