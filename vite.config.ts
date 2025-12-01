@@ -29,12 +29,9 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: [
-      {
-        find: /^@\/(.*)$/,
-        replacement: path.resolve(dirname, "src/$1"),
-      },
-    ],
+    alias: {
+      "@": path.resolve(dirname, "src"),
+    },
   },
   build: {
     lib: {
