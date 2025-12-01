@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
+import tsconfigPaths from "vite-tsconfig-paths";
 const dirname =
   typeof __dirname !== "undefined"
     ? __dirname
@@ -12,13 +13,10 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), vanillaExtractPlugin()],
+  plugins: [react(), vanillaExtractPlugin(), tsconfigPaths()],
   resolve: {
     alias: {
-      "@": path.resolve(dirname, "./src"),
-      "@/components": path.resolve(dirname, "./src/components"),
-      "@/tokens": path.resolve(dirname, "./src/tokens"),
-      "@/stories": path.resolve(dirname, "./src/stories"),
+      "@": path.resolve(dirname, "src"),
     },
   },
   optimizeDeps: {
@@ -44,6 +42,7 @@ export default defineConfig({
         "**/*.test.{ts,tsx}",
         "**/*.config.{ts,js}",
         ".storybook/",
+        "src/icons/**",
       ],
       // 커버리지 임계값 설정 (단위 테스트만 대상)
       thresholds: {
@@ -56,6 +55,7 @@ export default defineConfig({
     projects: [
       // 일반 단위 테스트 프로젝트
       {
+        extends: true,
         test: {
           name: "unit",
           environment: "jsdom",

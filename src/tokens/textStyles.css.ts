@@ -5,7 +5,7 @@ import {
 	type LineHeight,
 	type Typography,
 	typography,
-} from "@/tokens/typography";
+} from "./typography.css";
 
 const baseTextStyle = {
 	fontFamily: typography.fontFamily.sans,

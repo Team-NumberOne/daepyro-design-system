@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { colors } from "@/tokens/colors";
-import { type ShadowKey, shadows } from "@/tokens/shadows";
+import { colors } from "@/tokens/colors.css";
+import { type ShadowKey, shadows } from "@/tokens/shadows.css";
 
 const meta = {
 	title: "Design Tokens/Shadows",

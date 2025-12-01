@@ -3,15 +3,15 @@ export {
 	type ColorShade,
 	type Colors,
 	colors,
-} from "@/tokens/colors";
-export { type Radius, type RadiusKey, radius } from "@/tokens/radius";
-export { type ShadowKey, type Shadows, shadows } from "@/tokens/shadows";
+} from "./colors.css";
+export { type Radius, type RadiusKey, radius } from "./radius.css";
+export { type ShadowKey, type Shadows, shadows } from "./shadows.css";
 export {
 	type TextStyle,
 	type TextStyleKey,
 	type TextStyles,
 	textStyles,
-} from "@/tokens/textStyles";
+} from "./textStyles.css";
 export {
 	type FontFamily,
 	type FontSize,
@@ -20,4 +20,4 @@ export {
 	type LineHeight,
 	type Typography,
 	typography,
-} from "@/tokens/typography";
+} from "./typography.css";
