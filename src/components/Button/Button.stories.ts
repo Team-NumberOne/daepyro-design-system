@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@testing-library/react";
-import { Button } from "@/components/Button/Button";
+import { Button } from "./Button";
 import { getExpect, isTestEnvironment } from "../../../.storybook/utils";
 
 const meta = {

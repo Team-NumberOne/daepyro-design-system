@@ -50,10 +50,10 @@ export const WithText: Story = {
 		children: "클릭하세요",
 	},
 	play: isTestEnvironment
-		? async ({ canvasElement, args }) => {
+			? async ({ canvasElement, args }) => {
 				const expect = getExpect();
 				const canvas = within(canvasElement);
-				const button = canvas.getByRole("button", { name: "클릭하세요" });
+				const button = canvas.getByRole("button", { name: "클릭하세요 +" });
 
 				await expect(button).toBeInTheDocument();
 				await expect(button).toHaveTextContent(args.children as string);

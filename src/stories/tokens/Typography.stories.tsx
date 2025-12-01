@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { colors } from "@/tokens/colors";
-import { typography } from "@/tokens/typography";
+import { colors } from "../../tokens/colors.css";
+import { typography } from "../../tokens/typography.css";
 
 const meta = {
 	title: "Design Tokens/Typography",

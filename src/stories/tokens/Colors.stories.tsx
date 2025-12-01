@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { type ColorPalette, colors } from "@/tokens/colors";
+import { type ColorPalette, colors } from "../../tokens/colors.css";
 
 const meta = {
 	title: "Design Tokens/Colors",
